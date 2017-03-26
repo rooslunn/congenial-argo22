@@ -33,6 +33,7 @@
 
       /**
        * Calculates Julian Day Number
+       * https://en.wikipedia.org/wiki/Julian_day
        *
        * @return int
        */
