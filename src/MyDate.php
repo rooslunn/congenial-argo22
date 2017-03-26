@@ -31,6 +31,11 @@
           return $this->jdn;
       }
 
+      /**
+       * Calculates Julian Day Number
+       *
+       * @return int
+       */
       protected function calcJDN()
       {
           $a = (int) floor((14 - $this->month)/12);
@@ -56,13 +61,16 @@
               $invert = true;
           }
 
+          $years = $end_date->year - $start_date->year;
+
           $months = $end_date->month - $start_date->month;
           if ($months < 0) {
               $months = $end_date->month + 11 - $start_date->month;
+              $years--;
           }
           // Sample object:
           return (object) array(
-              'years' => $end_date->year - $start_date->year,
+              'years' => $years,
               'months' => $months,
               'days' => $end_date->day - $start_date->day,
               'total_days' => $total_days,
