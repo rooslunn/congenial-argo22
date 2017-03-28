@@ -53,7 +53,7 @@
           $start_date = self::fromString($start);
           $end_date = self::fromString($end);
 
-          $total_days = $end_date->calcJDN() - $start_date->calcJDN();
+          $total_days = $end_date->getJdn() - $start_date->getJdn();
           $invert = false;
           if ($total_days < 0) {
               $swp = clone $end_date;
