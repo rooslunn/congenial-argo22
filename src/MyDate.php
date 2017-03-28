@@ -19,7 +19,7 @@
 
       public static function fromString(string $s): MyDate
       {
-          [$year, $month, $day] = explode('/', $s);
+          [$year, $month, $day] = explode(self::DATE_DELIMITER, $s);
           return new self($year, $month, $day);
       }
 
