@@ -42,9 +42,11 @@
           $a = (int) floor((14 - $this->month)/12);
           $y = $this->year + 4800 - $a;
           $m = $this->month + 12 * $a - 3;
-          $jdn = $this->day + (int) floor((153*$m+2)/5) + 365*$y
-                  + (int) floor($y/4) - (int) floor($y/100)
-                  + (int) floor($y/400) - 32045;
+          $components =
+              [$this->day, (153*$m+2)/5, 365*$y, $y/4, -$y/100, $y/400, -32045];
+          $jdn = array_sum(array_map(function($n) {
+              return (int) floor($n);
+          }, $components));
           return $jdn;
       }
 
